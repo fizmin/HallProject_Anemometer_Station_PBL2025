@@ -1,3 +1,4 @@
+/*
 #include <Arduino.h>
 #include <json.hpp>
 #include <Wire.h>
@@ -514,3 +515,4 @@ int tf02_init_i2c_mode() {
 
   return 0;
 }
+  */
