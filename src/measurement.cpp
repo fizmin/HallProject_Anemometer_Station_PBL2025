@@ -96,7 +96,6 @@ void lidarMeasurementTask(void* pv) {
     if (testRequested) {
       testRequested = false;
 
-      digitalWrite(RELAY_PIN, HIGH); // Włącz laser/wskaźnik na czas testu
       vTaskDelay(pdMS_TO_TICKS(50));
 
       json root = json::array();
@@ -126,7 +125,6 @@ void lidarMeasurementTask(void* pv) {
         root.push_back(e);
       }
 
-      digitalWrite(RELAY_PIN, LOW); // Wyłącz laser
       vTaskDelay(pdMS_TO_TICKS(50));
 
       Serial.println(root.dump().c_str());
@@ -137,7 +135,6 @@ void lidarMeasurementTask(void* pv) {
     if (measureRequested) {
       measureRequested = false;
 
-      digitalWrite(RELAY_PIN, HIGH); // Włącz laser wspomagający celowanie
       vTaskDelay(pdMS_TO_TICKS(50));
 
       float localAvg[NUM_LIDARS];
@@ -189,7 +186,6 @@ void lidarMeasurementTask(void* pv) {
         }
       }
 
-      digitalWrite(RELAY_PIN, LOW);
       vTaskDelay(pdMS_TO_TICKS(50));
 
       // Bezpieczna aktualizacja danych globalnych dla zadania OLED
